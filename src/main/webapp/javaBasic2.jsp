@@ -11,7 +11,7 @@
     // ※以降のコメントを参考に、必要な処理を実装してください
  
     // 各平均を入れるための配列
-
+	double[] avg ={(double)((aScore[0]+bScore[0])/2), (double)(aScore[1]+bScore[1])/2, (double)(aScore[2]+bScore[2])/2};
     // 各平均点を計算し、配列へ計算結果を代入
     // ただし、平均点を計算する際にint型の値を小数点以下が
     // 扱える型にキャストする(キャスト演算子を使用してください)必要がある
@@ -68,22 +68,16 @@ table th, table td {
   </table>
 
   <h2>平均点</h2>
-  <p>国語：<%out.println((double)(aScore[0] + bScore[0]) / 2); %></p>
-  <p>数学：<%out.println((double)(aScore[1] + bScore[1]) / 2); %></p>
-  <p>英語：<%out.println((double)(aScore[2] + bScore[2]) / 2); %></p>
-  <%    // それぞれの合計点
-    int asum = 0;
-    for (int i = 0; i < 3; i++) {
-        asum+=aScore[i];
-    }
-
-	int bsum = 0;
-    for (int i = 0; i < 3; i++) {
-        bsum+=bScore[i];
-    }
-    %>
-  <p>合計：<%out.println((double)(asum + bsum) / 2); %></p>
+  <p>国語：<%out.println(avg[0]); %></p>
+  <p>数学：<%out.println(avg[1]); %></p>
+  <p>英語：<%out.println(avg[2]); %></p>
+<%
+	double avgsum = 0;
+	for (int i = 0; i < 3; i++) {
+		avgsum += avg[i];
+		}
+%>
+  <p>合計：<%out.println(avgsum); %>
 </body>
 </html>
-
 
