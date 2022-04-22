@@ -8,7 +8,6 @@
     // Bさんのスコアを国語、数学、英語の順に配列へ入れる
     // ※この処理は変更しないでください。
     int[] bScore = { 42, 95, 60 };
-
     // ※以降のコメントを参考に、必要な処理を実装してください
  
     // 各平均を入れるための配列
@@ -56,22 +55,35 @@ table th, table td {
     </tr>
     <tr>
       <td>Aさん</td>
-      <td>xxx</td>
-      <td>xxx</td>
-      <td>xxx</td>
+      <td><%out.println(aScore[0]);%></td>
+      <td><%out.println(aScore[1]);%></td>
+      <td><%out.println(aScore[2]);%></td>
     </tr>
     <tr>
       <td>Bさん</td>
-      <td>xxx</td>
-      <td>xxx</td>
-      <td>xxx</td>
+      <td><%out.println(bScore[0]);%></td>
+      <td><%out.println(bScore[1]);%></td>
+      <td><%out.println(bScore[2]);%></td>
     </tr>
   </table>
 
   <h2>平均点</h2>
-  <p>国語：xxx</p>
-  <p>数学：xxx</p>
-  <p>英語：xxx</p>
-  <p>合計：xxx</p>
+  <p>国語：<%out.println((double)(aScore[0] + bScore[0]) / 2); %></p>
+  <p>数学：<%out.println((double)(aScore[1] + bScore[1]) / 2); %></p>
+  <p>英語：<%out.println((double)(aScore[2] + bScore[2]) / 2); %></p>
+  <%    // それぞれの合計点
+    int asum = 0;
+    for (int i = 0; i < 3; i++) {
+        asum+=aScore[i];
+    }
+
+	int bsum = 0;
+    for (int i = 0; i < 3; i++) {
+        bsum+=bScore[i];
+    }
+    %>
+  <p>合計：<%out.println((double)(asum + bsum) / 2); %></p>
 </body>
 </html>
+
+
