@@ -3,6 +3,11 @@
 
 <%
     // ※必要な処理を実装してください
+request.setCharacterEncoding("UTF-8");
+String numone = request.getParameter("num1");
+String operator = request.getParameter("operator");
+String numtwo = request.getParameter("num2");
+
 
     // 入力値取得
 
@@ -30,7 +35,43 @@
 
   <p>
     <!-- メッセージの表示  -->
-
+    <%
+    if (numone == null){
+    	out.println("数値を入力してください。");
+    } else if (numone == "" && numtwo == ""){
+    	out.println("数値が両方とも未入力です。");
+    } else if (numone == "" || numtwo ==""){
+    	out.println("数値を入力してください。");
+    }
+    else if (numone != "" && numtwo != ""){
+        int num1 = Integer.parseInt(numone);
+        int num2 = Integer.parseInt(numtwo);
+        if (operator.equals("add")){
+      		out.println((num1) + "+" + (num2) + "=" + (num1 + num2));
+        } else if (operator.equals("sub")){
+            out.println((num1) + "-" + (num2) + "=" + (num1 - num2));
+        } else if (operator.equals("mul")){
+            out.println((num1) + "×" + (num2) + "=" + (num1 * num2));
+        } else if (operator.equals("div")){
+            out.println((num1) + "÷" + (num2) + "=" + (num1 / num2));
+        }
+        //switch (operator)	{ 	上のif文の処理はswitch文で書いたほうがよかったなあ。
+//         	case "add":
+//         		our.println("");
+//         		break;
+//         	case "sub":
+//         		our.println("");
+//         		break;
+//         	case "mul":
+//         		our.println("");
+//         		break;
+//         	case "div":
+//         		our.println("");
+//         		break;
+//         }
+    }
+	%>
+	
   </p>
 
   <form action="javaBasicDev3.jsp" method="post">
