@@ -59,12 +59,12 @@
           ・振る回数の入力に関わらず、1回だけ1～6のランダムの数を生成し、
             出た目に応じて勝ち負けを表示するような処理が入っています。
           ・この処理を参考に、振る回数分繰り返すように、処理を実装してください。
-
+			
           ＜勝った回数の保存＞
           ・実施回数については、セッション使って実施回数を更新する処理を実装済です。
           ・この処理を参考に、勝った回数を更新する処理を実装してください。
         */
-
+		for (int i = 0; i < num; i++) {
         // 1～6の数をランダムで生成
         int val = (int) (Math.random() * 6 + 1);
 
@@ -77,16 +77,18 @@
         } else {
             result += ", " + val;
         }
-
+		}
         // セッションから実施回数を取得
         totalNum = (int) session.getAttribute("totalNum");
-
+		winNum = (int) session.getAttribute("winNum");
+		
         // 実施回数を1加算
         totalNum += 1;
 
         if (sum % 2 == 0) {
             // 合計が偶数の場合、勝敗用の文字列をセット
             message = "あなたの勝ちです";
+            winNum += 1;
         } else {
             // 合計が奇数の場合、勝敗用の文字列をセット
             message = "あなたの負けです";
@@ -94,7 +96,7 @@
 
         // セッションに実施回数を保存
         session.setAttribute("totalNum", totalNum);
-
+        session.setAttribute("winNum", winNum);
     }
 %>
 
