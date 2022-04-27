@@ -34,20 +34,30 @@ public class Utility {
      * 引数を数値に変換し、三角形の面積を求める
      */
     public static double getTriangleArea(String widthStr, String heightStr) {
-        int width = 0;
-        int height = 0;
-
-        return 0;
+    	if (!isNullOrEmpty(widthStr)) {
+        int width = Integer.parseInt(widthStr);
+        int height = Integer.parseInt(heightStr);
+        
+        double triArea = (double)(width * height) / 2;
+        return triArea;
+    	} else {
+    		return (0);
+    	}
     }
 
     /**
      * 引数を数値に変換し、長方形の面積を求める
      */
     public static double getRectangleArea(String widthStr, String heightStr) {
-        int width = 0;
-        int height = 0;
-
-        return 0;
+    	if (!isNullOrEmpty(widthStr)) {
+    	int width = Integer.parseInt(widthStr);
+        int height = Integer.parseInt(heightStr);
+        
+        double recArea = (double)(width * height);
+        return recArea;
+    	} else {
+    		return (0);
+    	}
     }
 
     /**
@@ -56,6 +66,10 @@ public class Utility {
     public static boolean isNullOrEmpty(String str) {
         // todo:引数の値がnull、または空文字の場合は、true
         // それ以外の場合は、falseを返すように処理を修正する
-        return false;
+        if (str == null || str == "") {
+        	return true;
+        } else {
+    	return false;
+        }
     }
 }
